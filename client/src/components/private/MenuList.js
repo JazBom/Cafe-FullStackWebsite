@@ -1,7 +1,4 @@
 import React from "react";
-import MenuContainer from './MenuContainer';
-import Menu from '../public/Menu';
-
 
 const MenuList = (props) => {
 

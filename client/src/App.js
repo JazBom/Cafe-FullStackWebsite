@@ -20,25 +20,33 @@ const App = () => {
     <img className="image-background" src="https://web.archive.org/web/20161031200755if_/http://static.panoramio.com/photos/large/102225398.jpg"/>
     <Nav/>
           <Switch>
-          <Route path="/about">
-          <About/>
-          </Route>
-          <Route path="/menu">
-          <Menu/>
-          </Route>
+          
           <Route path="/">
-          <Container/>
+            <Container/>
           </Route>
+          
+          <Route path="/about">
+            <About/>
+          </Route>
+          
+          <Route path="/menu">
+            <Menu/>
+          </Route>
+          
           <Route path="/admin">
-          <Admin/>
+            <Admin/>
           </Route>
+
           <Route path="/newUserForm">
-          <NewUserForm/>
+            <NewUserForm/>
           </Route>
+
           <Route path="/logInForm">
           <LogInForm/>
           </Route>
+
         </Switch>
+        
     <Footer/>
     </div>
     </Router>

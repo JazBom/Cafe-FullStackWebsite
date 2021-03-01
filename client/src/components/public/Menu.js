@@ -1,14 +1,14 @@
 import React from "react";
+import MenuList from '../private/MenuList';
 
 function Menu () {
 // fetch all menu data and append to different categories (separate lists?)??
 return (
-  // to be coded
-  // do in separate compeonent for Mark to update and redner via tag e.g. <MenuList/> ?
+  
         <div className="menu">
           
           <div className="text">
-          <h2>Menu</h2>
+          <MenuList/>
           </div>
 
           <div className="img-div">
