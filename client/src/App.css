@@ -140,12 +140,6 @@
   z-index: inherit;
 }
 
-.card-one .link {
- margin: 0 auto;
- font-style: bold;
-
-}
-
 .card-two {
   display: flex;
   height: 100%;
@@ -157,10 +151,6 @@
   border-radius: 5px;
   z-index: inherit;
 }
-
-.card-two .link {
-  margin: 0 auto;
- }
 
  .about {
   position: fixed;
@@ -217,9 +207,17 @@
   z-index: 2;
  } 
 
- .menu-list h2 {
+.menu-list h2 {
   width: 100%;
    text-align: center;
+ }
+
+
+ .link {
+  display: flex;
+  position: flex-end;
+  margin: 0 auto;
+  font-style: bold;
  }
 
  /* .menu-list .items {
@@ -234,6 +232,21 @@
   background-color: rgba(255, 255, 255, 1);
   z-index: inherit;
  } */
+
+ .admin {
+  position: fixed;
+  top: 45px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-between;
+  min-height: 300px;
+  width: 100%;
+  padding: 5%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.514);
+  z-index: 2;
+}
 
 .footer {
   position: relative;

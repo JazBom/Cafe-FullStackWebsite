@@ -23,7 +23,7 @@ const [menuArray, setMenuArray] = useState([]);
 const [menuEdit, setMenuEdit] = useState({ item: '', price: '', category: ''});
 const [menuDelete, setMenuDelete] = useState({ item: '', price: '', category: ''});
 
-const handleMovieClick = (menuIndex) => {
+const handleMenuClick = (menuIndex) => {
     const menu = menuArray[menuIndex];
     console.log('menu:', menu)
     setMenuEdit(menu);
@@ -105,10 +105,17 @@ useEffect(() => {
     });
 }, []);
 
+
+const tempMenuArray = [
+    {_id: 1, item: 'egg muffin', price: '$8', category: 'breakfast'},
+    {_id: 2, item: 'flat white', price: '$5', category: 'coffee'},
+    {_id: 3, item: 'salad roll', price: '$10', category: 'lunch'}
+    ];
+
 return(
     <Router>
     <div>
-        <MenuList menu={menuArray} handleClick={handleMovieClick}/>
+        <MenuList menu={tempMenuArray} handleClick={handleMenuClick}/>
         
         <Link to="/menus/add">Add Menu Item</Link>
         <Link to="/menus/edit">Edit Menu Item</Link>

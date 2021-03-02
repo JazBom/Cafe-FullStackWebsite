@@ -22,19 +22,24 @@ const App = () => {
     <Nav/>
           <Switch>
           
-          <Route path="/">
+          <Route exact path="/">
             <Container/>
           </Route>
-          
-          <Route path="/about">
+
+          <Route exact path="/home">
+            <Container/>
+          </Route>
+
+
+          <Route exact path="/about">
             <About/>
           </Route>
           
-          <Route path="/menu">
+          <Route exact path="/menu">
             <Menu/>
           </Route>
           
-          <Route path="/admin">
+          <Route exact path="/admin">
             <Admin/>
           </Route>
 

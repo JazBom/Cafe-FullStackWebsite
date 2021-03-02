@@ -12,7 +12,7 @@ return (
           </div>
 
           <div className="img-div">
-          <img src="https://i.imgur.com/LTeu8Pr.jpg" alt="coffee"/>
+          {/* <img src="https://i.imgur.com/LTeu8Pr.jpg" alt="coffee"/> */}
           <img src="https://i.imgur.com/Z9LzZUN.jpg?1" alt="food"/>
           </div>
         
