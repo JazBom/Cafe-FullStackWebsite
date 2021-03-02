@@ -7,7 +7,7 @@ function Location () {
             <div>
                 <h2>Location</h2>
                 <p>We are located at 1/725 The Esplanade, Mornington VIC 3931, across from Fisherman's beach.</p>
-                <img/>
+                
             </div>
             <div>
                 <h2>Opening times</h2>

@@ -6,7 +6,7 @@ import Contact from './Contact';
 function Footer () {
     return (
         <footer className="footer">
-            <a name="Footer" />
+            <a name="Footer" alt="location and contact details"/>
             <Location/>
             <Contact/>
         </footer>

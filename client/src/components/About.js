@@ -11,7 +11,7 @@ function About () {
             <p>Our cabinet is full of your favourite cakes, pastries, muffins and Turkish rolls. We also have fresh daily salads, soups, pies and toasted sandwiches.</p>
             </div>
             <div className="img-div">
-            <img src="https://i.imgur.com/nGd9hnZ.jpg?2"/>
+            <img src="https://i.imgur.com/nGd9hnZ.jpg?2" alt="Lilo cafe patrons"/>
             </div>
             
         </div>

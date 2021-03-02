@@ -1,7 +1,7 @@
 import React from "react";
-import MenuList from '../private/MenuList';
+import { MenuList } from './MenuList';
 
-function Menu () {
+export function Menu () {
 // fetch all menu data and append to different categories (separate lists?)??
 return (
   
@@ -12,12 +12,10 @@ return (
           </div>
 
           <div className="img-div">
-          <img src="https://i.imgur.com/LTeu8Pr.jpg"/>
-          <img src="https://i.imgur.com/Z9LzZUN.jpg?1"/>
+          <img src="https://i.imgur.com/LTeu8Pr.jpg" alt="coffee"/>
+          <img src="https://i.imgur.com/Z9LzZUN.jpg?1" alt="food"/>
           </div>
         
         </div>
     )
 }
-
-export { Menu };
