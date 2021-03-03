@@ -25,10 +25,10 @@ app.use(cors());
 
 // Require the controller after the middleware
 const menuController = require('./controllers/menuController');
-const authController  = require('./controllers/authController');
+// const authController  = require('./controllers/authController');
 
-app.use('/api/v1/menu', menuController);
-app.use('/auth', authController);
+app.use('/api/menu', menuController);
+// app.use('/auth', authController);
 
 app.listen(process.env.PORT || 9000, () => {
   console.log('listening on port 9000');

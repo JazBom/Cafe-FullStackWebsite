@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const menuSchema = new mongoose.Schema({
+  _id: String,
   item: String,
   price: String,
   category:  String
