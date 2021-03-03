@@ -8,7 +8,7 @@ const MenuList = (props) => {
         <li
           key={el._id}
           className={el.category}
-          onClick={() => props.handleClick(el._id)}
+          onClick={() => props.clickEvent(el._id)}
         >
           {el.item} - {el.price}
         </li>
@@ -21,7 +21,7 @@ const MenuList = (props) => {
         <li
           key={el._id}
           className={el.category}
-          onClick={() => props.handleClick(el._id)}
+          onClick={() => props.clickEvent(el._id)}
         >
           {el.item} - {el.price}
         </li>
@@ -34,7 +34,7 @@ const MenuList = (props) => {
         <li
           key={el._id}
           className={el.category}
-          onClick={() => props.handleClick(el._id)}
+          onClick={() => props.clickEvent(el._id)}
         >
           {el.item} - {el.price}
         </li>
@@ -47,7 +47,7 @@ const MenuList = (props) => {
         <li
           key={el._id}
           className={el.category}
-          onClick={() => props.handleClick(el._id)}
+          onClick={() => props.clickEvent(el._id)}
         >
           {el.item} - {el.price}
         </li>
@@ -60,7 +60,7 @@ const MenuList = (props) => {
         <li
           key={el._id}
           className={el.category}
-          onClick={() => props.handleClick(el._id)}
+          onClick={() => props.clickEvent(el._id)}
         >
           {el.item} - {el.price}
         </li>

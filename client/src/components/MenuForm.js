@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuList from './MenuList';
 import { Form } from './Form';
@@ -13,14 +13,31 @@ const MenuForm = (props) => {
  //initialise state variables
 
 const [menuArray, setMenuArray] = useState([]);
-// const [menuEdit, setMenuEdit] = useState({ _id: '', item: '', price: '', category: ''});
-// const [menuDelete, setMenuDelete] = useState({ _id: '', item: '', price: '', category: ''});
+const [menuEdit, setMenuEdit] = useState({ _id: '', item: '', price: '', category: ''});
+const [menuDelete, setMenuDelete] = useState({ _id: '', item: '', price: '', category: ''});
+const [selectedMenuItem, setSelectedMenuItem] = useState({ _id: '', item: '', price: '', category: ''});
 
-const handleClick = (menuIndex) => {
-const menu = menuArray[menuIndex];
-console.log('menu:', menu)
-// setMenuEdit(menu);
-// setMenuDelete(menu);
+
+useEffect(() => {
+    fetch('http://localhost:9000/api/menu', {
+      method: "GET",
+      headers: {
+          "Content-Type": "application/json"
+      },
+    })
+    .then((response) => {
+        console.log("GET menu response", response);
+        return response.json();
+    }).then((menuData) => {
+        console.log("GET menu data", menuData);
+        setMenuArray(menuData.data);
+    });
+  },[]);
+
+const onMenuItemClick = (menuElId) => {
+    const menuElIndex = menuArray.findIndex(el => el._id === menuElId);
+    const menuEl = menuArray[menuElIndex];
+    setSelectedMenuItem(menuEl);
 }
 
 const handleFormSubmit = (_id, item, price, category) => {
@@ -84,21 +101,15 @@ const handleFormDelete = (menu) => {
         })
     };
 
-const tempMenuArray = [
-    {_id: 1, item: 'egg muffin', price: '$8', category: 'breakfast'},
-    {_id: 2, item: 'flat white', price: '$5', category: 'coffee'},
-    {_id: 3, item: 'salad roll', price: '$10', category: 'lunch'}
-    ];
-
 return(
      <div className="menu-form">
          
          <div className="div-one-list">
-         <MenuList menu={menuArray} handleClick={handleClick}/>
+         <MenuList menu={menuArray} canClick="true" clickEvent={onMenuItemClick}/>
          </div>
          
          <div className="div-two-form">
-         <Form menu={menuArray} submit={handleFormSubmit} editsubmit={handleFormEdit} deletesubmit={handleFormDelete}/>
+         <Form menuItem={selectedMenuItem} submit={handleFormSubmit} editsubmit={handleFormEdit} deletesubmit={handleFormDelete}/>
          </div>
 
     </div>
