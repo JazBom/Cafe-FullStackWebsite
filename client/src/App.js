@@ -11,8 +11,9 @@ import { About } from './components/About';
 import { Menu } from './components/Menu';
 import { Footer } from './components/Footer';
 import { Admin } from './components/Admin';
-import { NewUserForm } from './components/NewUserForm';
-import { LogInForm } from './components/LogInForm';
+import { MenuForm } from './components/MenuForm';
+import { Form } from './components/Form';
+import { Dogs } from './components/Dogs';
 
 const App = () => {
   return (
@@ -43,12 +44,24 @@ const App = () => {
             <Admin/>
           </Route>
 
-          <Route path="/newUserForm">
-            <NewUserForm/>
+          <Route exact path="/admin/menu-update">
+            <MenuForm/>
           </Route>
 
-          <Route path="/logInForm">
-          <LogInForm/>
+          {/* <Route exact path="/admin/menu-update/add">
+            <MenuFormAdd/>
+          </Route> */}
+
+          {/* <Route exact path="admin/menu-update/edit">
+            <MenuFormEdit/>
+          </Route>
+
+          <Route exact path="admin/menu-update/delete">
+            <MenuFormDelete/>
+          </Route> */}
+
+          <Route exact path="admin/dogs">
+            <Dogs/>
           </Route>
 
         </Switch>

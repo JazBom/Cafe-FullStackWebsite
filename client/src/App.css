@@ -118,6 +118,21 @@
   z-index: 0;
 }
 
+.admin {
+  position: fixed;
+  top: 45px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-between;
+  min-height: 300px;
+  width: 100%;
+  padding: 5%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.514);
+  z-index: 2;
+}
+
 .cards {
   display: flex;
   justify-content: space-between;
@@ -128,7 +143,7 @@
   z-index: inherit;
 }
 
-.card-one {
+.card-one, .card-two, .card-three {
   display: flex;
   height: 100%;
   width: 40%;
@@ -140,19 +155,7 @@
   z-index: inherit;
 }
 
-.card-two {
-  display: flex;
-  height: 100%;
-  width: 40%;
-  margin: 0 auto;
-  align-items: center;
-  border: 0.5px thin rgba(255, 255, 255, 1);
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-  z-index: inherit;
-}
-
- .about {
+ .about, .menu {
   position: fixed;
   top: 45px;
   display: flex;
@@ -192,30 +195,78 @@
    height: auto;
  }
 
- .menu {
+ .menu-form {
   position: fixed;
   top: 45px;
-  display: flex;
-  flex-direction: column;
-  flex-flow: wrap;
-  justify-content: space-between;
-  min-height: 300px;
   width: 100%;
-  padding: 5%;
+  min-height: 600px;
+  max-height: 900px;
+  display: flex;
+  overflow: scroll;
+  flex-flow: row wrap;
+  justify-content: space-between;
   margin: 0 auto;
+  padding: 2%;
   background-color: rgba(255, 255, 255, 1);
   z-index: 2;
- } 
-
-.menu-list h2 {
-  width: 100%;
-   text-align: center;
  }
 
+ .menu-form h2 {
+  width: 100%;
+  text-align: center;
+ }
+
+ .div-one-list, .div-two-form {
+  display: flex;
+  width: 50%;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  z-index: inherit;
+ } 
+
+ .div-two-form .buttons {
+   width: 40%;
+   margin: 5% auto;
+   display: flex;
+   z-index: inherit;
+ }
+
+ .menuButton {
+   display: flex;
+   flex-flow: row wrap;
+   min-width: 60px;
+   min-height: 60px;
+   margin: 0 auto;
+   align-items: center;
+   background-color:rgba(210, 215, 211, 0.5);
+   color: rgb(13, 92, 62);
+   border: 1px solid rgba(13, 92, 62, 0.5);
+   border-radius: 5px;
+   font-size: 0.9rem;
+   font-weight: 600;
+   font-family: inherit;
+   z-index: inherit;
+ }
+
+ .div-two-form .inputs {
+   margin: 5% auto;
+   display: flex;
+   min-height: 100px;
+   min-width: 50%;
+   max-width: 70%;
+   flex-flow: column wrap;
+   align-items: left;
+   justify-content: space-between;
+   z-index: inherit;
+ }
+
+ .form-field {
+   width: 100%;
+   margin: 1% auto 9% auto;
+ }
 
  .link {
   display: flex;
-  position: flex-end;
   margin: 0 auto;
   font-style: bold;
  }
@@ -233,20 +284,7 @@
   z-index: inherit;
  } */
 
- .admin {
-  position: fixed;
-  top: 45px;
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  justify-content: space-between;
-  min-height: 300px;
-  width: 100%;
-  padding: 5%;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.514);
-  z-index: 2;
-}
+
 
 .footer {
   position: relative;
