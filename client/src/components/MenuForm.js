@@ -34,21 +34,11 @@ const handleFormSubmit = (_id, item, price, category) => {
             body: JSON.stringify(newMenuItem),
         }).then((response) => {
         console.log("POST menu response", response);
-        });
-    // const newMenuArray = [...menuArray];
-    // newMenuArray.push(newMenuItem);
-    // setMenuArray(newMenuArray);     
-
-    // fetch('http://localhost:9000/api/menu', {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(),
-    //     }).then((response) => {
-    //     console.log("GET ALL menu response", response);
-    //     newMenuArray = response.body;
-    //     });
+        }).catch(err => { console.log(err) });
+    
+    const newMenuArray = [...menuArray];
+    newMenuArray.push(newMenuItem);
+    setMenuArray(newMenuArray);     
 
     };
 

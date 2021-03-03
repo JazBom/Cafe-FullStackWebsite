@@ -22,8 +22,6 @@ const Form = (props) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         props.submit(formState._id, formState.item, formState.price, formState.category);
-
-        
         // props.menu.Button(formState.item, formState.price, formState.category);
         };
 
@@ -33,7 +31,8 @@ const Form = (props) => {
                 <form>
                
                 <div className="buttons">
-                    <Button type="submit" className="menuButton">Add</Button>
+                    <Button className="menuButton" onClick={handleFormSubmit}>Add</Button>
+
                     {/* <Button type="submit" className="menuButton">Edit</Button>
                     <Button type="submit" className="menuButton">Delete</Button> */}
                 </div>
