@@ -6,7 +6,7 @@ const Menu = require('../models/MenuModel');
 // Creating the index route which should show all the items
 router.get('/', async (req, res, next) => {
   // req.body this is from the fetch request
-  console.log(req.body, 'this is GET-all')
+  console.log(req.body, 'this is an API GET-all request')
     try  {
       const allMenu = await Menu.find();
       // This is the response to react
@@ -36,7 +36,9 @@ router.post('/', async (req, res) => {
     });
   } catch(err){
     console.log(err);
-    res.send(err);
+    res.status(500);
+    res.json({ message : 'ERROR - Did not save to database - check ID is unique.'});
+    
   }
 });
 

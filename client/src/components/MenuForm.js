@@ -52,14 +52,21 @@ const handleFormSubmit = (_id, item, price, category) => {
             },
             body: JSON.stringify(newMenuItem),
         }).then((response) => {
-            if (response.status === 200) {
+            if (response.status === 201) {
                 console.log("POST menu response", response);
                 newMenuArray.push(newMenuItem);
                 setMenuArray(newMenuArray); 
-            } 
-        }).catch(err => { 
+            } else if (response.status === 500) {
+                response.json().then((body) => {
+                    console.log(body);
+                    setMenuArray(menuArray);
+                    setErrorMessage('Could not save - is the ID unique?');
+                });
+                
+            }
+        }).catch((err) => { 
         console.log(err);
-        setErrorMessage('Error saving to database');
+        setErrorMessage('Could not save - is the ID unique?');
         });
     };
 
