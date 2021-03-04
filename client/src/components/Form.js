@@ -26,19 +26,17 @@ const Form = (props) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         props.submit(formState._id, formState.item, formState.price, formState.category);
-        // props.menu.Button(formState.item, formState.price, formState.category);
         };
 
-    // const handleFormEdit = (e) => {
-    //     e.preventDefault();
-    //     props.editsubmit(formState._id, formState.item, formState.price, formState.category);
-    //         // props.menu.Button(formState.item, formState.price, formState.category);
-    //     };
+    const handleFormEdit = (e) => {
+        e.preventDefault();
+        props.editsubmit(formState._id, formState.item, formState.price, formState.category);
+        };
 
-    // const handleFormDelete = (e) => {
-    //     e.preventDefault();
-    //     props.deletesubmit(formState._id, formState.item, formState.price, formState.category);
-    //     };
+    const handleFormDelete = (e) => {
+        e.preventDefault();
+        props.deletesubmit(formState._id, formState.item, formState.price, formState.category);
+        };
 
    
 
@@ -49,8 +47,8 @@ const Form = (props) => {
                
                 <div className="buttons">
                     <Button className="menuButton" onClick={handleFormSubmit}>Add</Button>
-                    {/* <Button className="menuButton" onClick={handleFormEdit}>Edit</Button>
-                    <Button className="menuButton" onClick={handleFormDelete}>Delete</Button> */}
+                    <Button className="menuButton" onClick={handleFormEdit}>Edit</Button>
+                    <Button className="menuButton" onClick={handleFormDelete}>Delete</Button>
                 </div>
                 
                 <div className="inputs">
