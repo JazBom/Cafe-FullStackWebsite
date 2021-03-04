@@ -225,9 +225,10 @@
  } 
 
  .div-two-form .buttons {
-   width: 40%;
+   width: 50%;
    margin: 5% auto;
    display: flex;
+   flex-flow: row wrap;
    z-index: inherit;
  }
 
@@ -246,6 +247,9 @@
    font-weight: 600;
    font-family: inherit;
    z-index: inherit;
+   transition-property: color;
+   transition-duration: 200ms;
+   transition-timing-function: ease-in;
  }
 
  .div-two-form .inputs {

@@ -16,7 +16,7 @@ const [menuArray, setMenuArray] = useState([]);
 const [menuEdit, setMenuEdit] = useState({ _id: '', item: '', price: '', category: ''});
 const [menuDelete, setMenuDelete] = useState({ _id: '', item: '', price: '', category: ''});
 const [selectedMenuItem, setSelectedMenuItem] = useState({ _id: '', item: '', price: '', category: ''});
-
+const [errorMessage, setErrorMessage] = useState('');
 
 useEffect(() => {
     fetch('http://localhost:9000/api/menu', {
@@ -42,6 +42,8 @@ const onMenuItemClick = (menuElId) => {
 
 const handleFormSubmit = (_id, item, price, category) => {
     const newMenuItem = { _id: _id, item: item, price: price, category: category };
+    const newMenuArray = [...menuArray];
+    
 
     fetch('http://localhost:9000/api/menu', {
             method: "POST",
@@ -50,13 +52,15 @@ const handleFormSubmit = (_id, item, price, category) => {
             },
             body: JSON.stringify(newMenuItem),
         }).then((response) => {
-        console.log("POST menu response", response);
-        }).catch(err => { console.log(err) });
-    
-    const newMenuArray = [...menuArray];
-    newMenuArray.push(newMenuItem);
-    setMenuArray(newMenuArray);     
-
+            if (response.status === 200) {
+                console.log("POST menu response", response);
+                newMenuArray.push(newMenuItem);
+                setMenuArray(newMenuArray); 
+            } 
+        }).catch(err => { 
+        console.log(err);
+        setErrorMessage('Error saving to database');
+        });
     };
 
     const handleFormEdit = (menu) => {
@@ -110,6 +114,7 @@ return(
          
          <div className="div-two-form">
          <Form menuItem={selectedMenuItem} submit={handleFormSubmit} editsubmit={handleFormEdit} deletesubmit={handleFormDelete}/>
+         <div style={errorMessage.length <= 0 ? {display: 'none'} : {display: 'block'}}>{errorMessage}</div>
          </div>
 
     </div>

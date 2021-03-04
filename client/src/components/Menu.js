@@ -34,7 +34,6 @@ return (
           
           <div className="text">
             <div>
-            <h3>Menu</h3>
             <MenuList menu={menuArray} canClick="false" />
             {/* <ul>
               <li>{tempMenuArray[0].item} - {tempMenuArray[0].price}</li>
