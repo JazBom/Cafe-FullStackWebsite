@@ -62,12 +62,15 @@ const Form = (props) => {
                         <input name="price" className="form-field" value={formState.price} onChange={handleChange}></input>
                     </label>
                     <label>Category: 
-                        <select name="category" className="form-field" value={formState.category} onChange={handleChange}>Select a category
+                        <select name="category" className="form-field" value={formState.category} onChange={handleChange}>
+
+                        <option name="category" value="" selected disabled>Please select</option>
                         <option name="category" value="specials">Specials</option>
                         <option name="category" value="coffee">Coffee</option>
                         <option name="category" value="breakfast">Breakfast</option>
                         <option name="category" value="lunch">Lunch</option>
                         <option name="category" value="snacks">Snacks</option>
+
                         </select>
                     </label>
                 </div>

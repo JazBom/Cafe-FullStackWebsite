@@ -118,7 +118,7 @@
   z-index: 0;
 }
 
-.admin {
+.admin, .dog-images {
   position: fixed;
   top: 45px;
   display: flex;

@@ -13,7 +13,9 @@ import { Footer } from './components/Footer';
 import { Admin } from './components/Admin';
 import { MenuForm } from './components/MenuForm';
 import { Form } from './components/Form';
-import { Dogs } from './components/Dogs';
+import { DogForm } from './components/DogForm';
+import { DogImages } from './components/DogImages';
+
 
 const App = () => {
   return (
@@ -61,7 +63,11 @@ const App = () => {
           </Route> */}
 
           <Route exact path="admin/dogs">
-            <Dogs/>
+            <DogForm/>
+          </Route>
+
+          <Route exact path="admin/dogs/images">
+            <DogImages/>
           </Route>
 
         </Switch>
