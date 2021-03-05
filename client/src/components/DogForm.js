@@ -6,10 +6,7 @@ import { DogImages } from './DogImages';
 function DogForm () {
 
 const [formState, setFormState] = useState({
-    _id: '',
-    item: '',
-    price: '',
-    category: '',
+    url: ''
 });
 const [dogImageArray, setDogImageArray] = useState([]);
 const [selectedDogImage, setSelectedDogImage] = useState({url: "" });
@@ -41,7 +38,7 @@ useEffect(() => {
         setDogImageArray(dogImageData.data);
       });
       setFormState(dogImageArray);
-  }, [dogImageArray]);
+  }, []);
 
   const onDogImageClick = (dogElId) => {
     const dogElIndex = dogImageArray.findIndex((el) => el._id === dogElId);
@@ -56,7 +53,7 @@ useEffect(() => {
     };
   const newDogImageArray = [...dogImageArray];
   
-  fetch("http://localhost:9000/api/menu", {
+  fetch("http://localhost:9000/api/dog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -133,7 +130,7 @@ useEffect(() => {
         </form>
         
         <DogImages 
-            dogs={tempDogImageArray}
+            dogs={dogImageArray}
             canClick="true"
             clickEvent={onDogImageClick}
             />
