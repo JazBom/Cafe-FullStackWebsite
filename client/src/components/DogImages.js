@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 const DogImages = (props) => {
-    const dogs = props.dogs
+
+    const dogPics = props.dogs
     .map((el) => {
       return (
         <li
@@ -9,15 +10,15 @@ const DogImages = (props) => {
           className='dog-pic'
           onClick={() => props.clickEvent(el._id)}
         >
-           <img src= {el.url}/>
+           <img src= {el.url} />
         </li>
       );
     });
 
   return (
     <div className="dog-images">
-    <ul className="dog-images-list">
-      {dogs}
+    <ul className="dog-images-list no-bull">
+      {dogPics}
     </ul>
     </div>
   );

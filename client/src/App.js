@@ -62,11 +62,11 @@ const App = () => {
             <MenuFormDelete/>
           </Route> */}
 
-          <Route exact path="admin/dogs">
+          <Route exact path="/admin/dogs">
             <DogForm/>
           </Route>
 
-          <Route exact path="admin/dogs/images">
+          <Route exact path="/admin/dogs/images">
             <DogImages/>
           </Route>
 

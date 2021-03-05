@@ -118,7 +118,7 @@
   z-index: 0;
 }
 
-.admin, .dog-images {
+.admin {
   position: fixed;
   top: 45px;
   display: flex;
@@ -275,18 +275,79 @@
   font-style: bold;
  }
 
- /* .menu-list .items {
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  justify-content: space-between;
-  min-height: 300px;
+ .dogs {
+  position: fixed;
+  top: 45px;
+  min-height: 800px;
   width: 100%;
-  padding: 5%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(227, 247, 252, 0.5);
+  z-index: 2;
+}
+.dogs form {
+  position: relative;
+  top: 0;
+  height: 110px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 1);
   z-index: inherit;
- } */
+}
+.dogs .inputs {
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 0;
+}
+.dogs .buttons {
+  display: inline-flex;
+  justify-content: space-between;
+}
+.dogs .dogImageButton {
+  width: 100px;
+  margin: 0 auto;
+  padding-bottom: 0;
+}
+.dog-images {
+  position: relative;
+  top: 45px;
+  min-height: 450px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: inherit;
+}
+
+.dog-images ul, .dog-images li {
+  display: inline-flex;
+  flex-flow: row wrap;
+  position: flex-start;
+  padding: 0 0 500px 0;
+  width: 100%;
+  z-index: inherit;
+}
+
+.dog-images li {
+  position: sticky;
+  padding: 1%;
+  display: flex;
+  flex-flow: row wrap;
+  width: auto;
+  padding: 1%;
+  z-index: inherit;
+}
+
+.dog-images img {
+  height: 300px;
+  width: auto;
+  padding: 2%;
+  z-index: inherit;
+}
 
 
 
@@ -296,7 +357,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: flex-start;
-  margin: 400px 1% 1% 1%;
+  margin: 600px 1% 1% 1%;
   z-index: 1;
 }
 
@@ -376,25 +437,68 @@
 
 @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
 
+  .app {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.5rem;
+  }
+  .img-background {
+    height: auto;
+    width: 480px;
+  }
+
+  .banner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .lilo-heading h1 {
+    font-size: 0.5rem;
+    z-index: inherit;
+
+  }
+  .home {
+    height: auto;
+    width: 480px;
+    flex-flow: column;
+    z-index: 1;
+  }
+  .container {
+    height: auto;
+    width: 480px;
+    flex-flow: column wrap;
+    z-index: 1;
+  }
+  .cards {
+    z-index: 1;
+  }
   .footer {
+    display: flex;
+    position: flex-end;
     height: auto;
     width: 100%;
     flex-direction: column;
     margin: 1% auto;
-    padding: 1%;
+    padding: 20% 0 0 0;
     justify-content: center;
     font-size: 0.5rem;
+    z-index: 1;
+
   }
   .location {
     display: flex;
     flex-flow: row wrap;
     width: 90%;
     margin: auto 2.5%;
+    z-index: inherit;
+
   }
   .contact {
     display: flex;
     width: 90%;
     margin: auto 2.5%;
+    z-index: inherit;
+
   }
 }
 

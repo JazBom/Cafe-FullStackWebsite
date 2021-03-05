@@ -26,10 +26,6 @@ const handleChange = (e) => {
 };
 
 useEffect(() => {
-  setFormState(dogImageArray);
-}, [dogImageArray]);
-
-useEffect(() => {
     fetch("http://localhost:9000/api/dog", {
       method: "GET",
       headers: {
@@ -44,7 +40,8 @@ useEffect(() => {
         console.log("GET dog data", dogImageData);
         setDogImageArray(dogImageData.data);
       });
-  }, []);
+      setFormState(dogImageArray);
+  }, [dogImageArray]);
 
   const onDogImageClick = (dogElId) => {
     const dogElIndex = dogImageArray.findIndex((el) => el._id === dogElId);
@@ -106,25 +103,37 @@ useEffect(() => {
     });
   };
 
+  const tempDogImageArray = [{
+    url: "https://i.imgur.com/HM6Nnft.jpg",
+  },
+  {
+    url: "https://i.imgur.com/o9cvfta.jpg?1",
+  },
+  {
+    url: "https://i.imgur.com/JY9p7Z2.png?1"
+  }
+];
+
     return (
         
         <div className="dogs">
         <h2>Update Dog Pics</h2>
+        <p>Add a url, or click on a pic to delete!</p>
         <form>
+        
+        <div className="inputs">
+            <label><input name="_id" className="form-field" value={formState._id} onChange={handleChange}></input>
+            </label>
+        </div>
+        
         <div className="buttons">
             <Button className="dogImageButton" onClick={handleFormSubmit}>Add</Button>
             <Button className="dogImageButton" onClick={handleFormDelete}>Delete</Button>
         </div>
-        
-        <div className="inputs">
-            <label>Url: 
-                <input name="_id" className="form-field" value={formState._id} onChange={handleChange}></input>
-            </label>
-        </div>
         </form>
         
         <DogImages 
-            dogs={dogImageArray}
+            dogs={tempDogImageArray}
             canClick="true"
             clickEvent={onDogImageClick}
             />
