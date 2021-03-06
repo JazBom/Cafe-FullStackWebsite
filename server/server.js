@@ -30,7 +30,6 @@ const dogController = require('./controllers/dogController');
 app.use('/api/menu', menuController);
 app.use('/api/dog', dogController);
 
-
 // SET UP app to listen to correct port
 app.listen(process.env.PORT || 9000, () => {
   console.log('listening on port 9000');

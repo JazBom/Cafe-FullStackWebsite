@@ -27,13 +27,8 @@ router.post('/', async (req, res) => {
     console.log(req.body, 'this is REQUEST body');
     const createdMenu = await Menu.create(req.body);
     console.log('RESPONSE happening?')
-    res.json({
-      status: {
-            code: 201,
-            message: "MENU ITEM successfully created"
-          },
-      data: createdMenu
-    });
+    res.status(201);
+    res.json({data: createdMenu, message : "MENU ITEM successfully created"});
   } catch(err){
     console.log(err);
     res.status(500);

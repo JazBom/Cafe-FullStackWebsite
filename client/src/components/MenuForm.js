@@ -34,29 +34,13 @@ const MenuForm = (props) => {
   });
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:9000/api/menu", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        console.log("GET menu response", response);
-        return response.json();
-      })
-      .then((menuData) => {
-        console.log("GET menu data", menuData);
-        setMenuArray(menuData.data);
-      });
-  }, []);
-
   const onMenuItemClick = (menuElId) => {
     const menuElIndex = menuArray.findIndex((el) => el._id === menuElId);
     const menuEl = menuArray[menuElIndex];
     setSelectedMenuItem(menuEl);
   };
 
+  // Add item button logic in menu form
   const handleFormSubmit = (_id, item, price, category) => {
     const newMenuItem = {
       _id: _id,
@@ -74,10 +58,12 @@ const MenuForm = (props) => {
       body: JSON.stringify(newMenuItem),
     })
       .then((response) => {
-        if (response.status === 201) {
+        console.log(response.status);
+        if (response.status === 201 || response.status === 200) {
           console.log("POST menu response", response);
           newMenuArray.push(newMenuItem);
           setMenuArray(newMenuArray);
+
         } else if (response.status === 500) {
           response.json().then((body) => {
             console.log(body);
@@ -92,6 +78,8 @@ const MenuForm = (props) => {
       });
   };
 
+
+  // Edit item button logic in menu form
   const handleFormEdit = (_id, item, price, category) => {
     const menuEditItem = {
       _id: _id,
@@ -99,9 +87,9 @@ const MenuForm = (props) => {
       price: price,
       category: category,
     };
-    const newMenuArray = [...menuArray];
-
     setMenuEditItem(menuEditItem);
+    const newMenuArray = [...menuArray];
+  
 
     fetch(`http://localhost:9000/api/menu/${menuEditItem._id}`, {
       method: "PUT",
@@ -109,18 +97,28 @@ const MenuForm = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(menuEditItem),
-    }).then((response) => {
-      if (response.status === 201) {
+      })
+    .then((response) => {
+      console.log(response.status);
+      if (response.status === 201 || response.status === 200) {
         console.log("PUT menu response", response);
-        newMenuArray.push(menuEditItem);
-        setMenuArray(newMenuArray);
+        const menuItemIndex = newMenuArray.findIndex((el) => el._id === menuEditItem._id);
+        newMenuArray[menuItemIndex].item = menuEditItem.item;
+        newMenuArray[menuItemIndex].price = menuEditItem.price;
+        newMenuArray[menuItemIndex].category = menuEditItem.category;
+        setMenuArray(newMenuArray)
+      
       } else if (response.status === 500) {
-        response.json().then((body) => {
+        response.json()
+        .then((body) => {
           console.log(body);
           setMenuArray(menuArray);
           setErrorMessage("Could not update - is the ID correct?");
         });
       }
+    }).catch((err) => {
+      console.log(err);
+      setErrorMessage("Could not save - is the ID unique?");
     });
 
   };
@@ -132,23 +130,52 @@ const MenuForm = (props) => {
         price: price,
         category: category,
       };
-   
     setMenuDeleteItem(menuDeleteItem);
+    const newMenuArray = [...menuArray];
+    newMenuArray[menuDeleteItem, menuArray] = [menuDeleteItem, ...menuArray];
 
     fetch(`http://localhost:9000/api/menu/${menuDeleteItem._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((response) => {
-      console.log("DELETE menu response", response);
-      return response.json();
+    })
+    .then((response) => {
+      if (response.status === 201 || response.status === 200) {
+        console.log("DELETE menu response", response);
+        const menuToDeleteIndex = newMenuArray.findIndex(el => el._id === menuDeleteItem._id);
+        newMenuArray.splice(menuToDeleteIndex, 1);
+        setMenuArray(newMenuArray);
+     
+      } else if (response.status === 500) {
+        response.json()
+        .then((body) => {
+          console.log(body);
+         
+          setErrorMessage("Could not delete - is the ID correct?");
+        });
+      }
     });
-
-
-
-
   };
+
+
+  useEffect(() => {
+    fetch("http://localhost:9000/api/menu", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log("GET menu response", response);
+        return response.json();
+      })
+      .then((menuData) => {
+        console.log("GET menu data", menuData);
+        setMenuArray(menuData.data);
+      });
+
+  }, []);
 
   return (
     <div className="menu-form">
