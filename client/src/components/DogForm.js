@@ -6,11 +6,12 @@ import { DogImages } from './DogImages';
 function DogForm () {
 
 const [formState, setFormState] = useState({
-    url: ''
+  imgUrl: ''
 });
+
 const [dogImageArray, setDogImageArray] = useState([]);
-// const [selectedDogImage, setSelectedDogImage] = useState({url: '' });
-// const [dogImageDelete, setDogImageDelete] = useState({url: "" });
+// const [selectedDogImage, setSelectedDogImage] = useState({imgUrl: '' });
+// const [dogImageDelete, setDogImageDelete] = useState({imgUrl: "" });
 const [errorMessage, setErrorMessage] = useState('');
 
 const handleChange = (e) => {
@@ -22,23 +23,23 @@ const handleChange = (e) => {
     setFormState(newState);
 };
 
-// useEffect(() => {
-//     fetch("http://localhost:9000/api/dog", {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     })
-//       .then((response) => {
-//         console.log("GET dog response", response);
-//         return response.json();
-//       })
-//       .then((dogImageData) => {
-//         console.log("GET dog data", dogImageData);
-//         setDogImageArray(dogImageData.data);
-//       });
-//       setFormState(dogImageArray);
-//   }, []);
+useEffect(() => {
+    fetch("http://localhost:9000/api/dog", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log("GET dog response", response);
+        return response.json();
+      })
+      .then((dogImageData) => {
+        console.log("GET dog data", dogImageData);
+        setDogImageArray(dogImageData.data);
+      });
+      // setFormState(dogImageArray);
+  }, []);
 
   // const onDogImageClick = (dogElUrl) => {
   //   const dogElVal = dogImageArray.findIndex((el) => el._id === dogElUrl);
@@ -49,69 +50,73 @@ const handleChange = (e) => {
   //   // setSelectedDogImage(dogEl);
   // };
 
-  const handleFormSubmit = (url) => {
-  const newDogImage = {
-      url: url
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const newDogImage = {
+      imgUrl: formState.imgUrl
     };
-  const newDogImageArray = [...dogImageArray];
-  newDogImageArray.push(newDogImage);
-  setDogImageArray(newDogImageArray);
-  
-  fetch("http://localhost:9000/api/dog", {
+    const newDogImageArray = [...dogImageArray];
+
+    fetch("http://localhost:9000/api/dog", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newDogImage),
+    })
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 201 || response.status === 200) {
+          console.log("POST dog response", response);
+          newDogImageArray.push(newDogImage);
+          setDogImageArray(newDogImageArray);
+
+        } else if (response.status === 500) {
+          response.json().then((body) => {
+            console.log(body);
+            setDogImageArray(dogImageArray);
+            setErrorMessage("Could not save - is the ID unique?");
+          });
+        }
       })
-      // .then((response) => {
-      //   if (response.status === 201) {
-      //     console.log("POST dog image response", response);
-      //     newDogImageArray.push(newDogImage);
-      //     setDogImageArray(newDogImageArray);
-      //   } else if (response.status === 500) {
-      //     response.json().then((body) => {
-      //       console.log(body);
-      //       setDogImageArray(dogImageArray);
-      //       setErrorMessage("Could not save - is image a duplicate?");
-      //     });
-      //   }
-      // })
-      // .catch((err) => {
-      //   console.log(err);
-      //   setErrorMessage("Could not save - is image a duplicate?");
-      // });
+      .catch((err) => {
+        console.log(err);
+        setErrorMessage("Could not save - is the ID unique?");
+      });
   };
 
-  // const handleFormDelete = (e, _id, url) => {
-  //   e.preventDefault();
-  //   const dogImageDelete = {
-  //     url: url
-  //   };
-  //   const newDogImageArray = [...dogImageArray];
-  //   setDogImageDelete(selectedDogImage);
+  const handleFormDelete = (e) => {
+    e.preventDefault();
 
-  //   fetch(`http://localhost:9000/api/menu/${dogImageDelete._id}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   }).then((response) => {
-  //       newDogImageArray.splice(dogImageDelete);
-  //       setDogImageArray(newDogImageArray);
-  //       console.log("DELETE dog image response", response);
-  //       return response.json();
-  //   });
-  // };
+    const dogImageDelete = {
+      imgUrl: formState.imgUrl
+    };
+    const newDogImageArray = [...dogImageArray];
+    // setDogImageDelete(selectedDogImage);
+
+    fetch(`http://localhost:9000/api/dog`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body : JSON.stringify(dogImageDelete)
+    }).then((response) => {
+        // newDogImageArray.splice(dogImageDelete);
+        // setDogImageArray(newDogImageArray);
+        // console.log("DELETE dog image response", response);
+        return response.json();
+    });
+  };
 
   const tempDogImageArray = [{
-    url: "https://i.imgur.com/HM6Nnft.jpg",
+    imgUrl: "https://i.imgur.com/HM6Nnft.jpg"
   },
   {
-    url: "https://i.imgur.com/o9cvfta.jpg?1",
+    imgUrl: "https://i.imgur.com/o9cvfta.jpg?1"
   },
   {
-    url: "https://i.imgur.com/JY9p7Z2.png?1"
+    imgUrl: "https://i.imgur.com/JY9p7Z2.png?1"
   }
 ];
 
@@ -123,7 +128,7 @@ const handleChange = (e) => {
         <form>
         
         <div className="inputs">
-            <label><input name="url" className="form-field" value={formState.url} onChange={handleChange}></input>
+            <label><input name="imgUrl" className="form-field" value={formState.imgUrl} onChange={handleChange}></input>
             </label>
         </div>
         
@@ -135,7 +140,7 @@ const handleChange = (e) => {
         
         <DogImages 
             dogs={dogImageArray}
-            canClick="true"
+            // canClick="true"
             // clickEvent={onDogImageClick}
             />
     </div>  

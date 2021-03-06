@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const dogSchema = new mongoose.Schema({
 //   _id: String,
-  url: String
+imgUrl: String
 });
 
 // Exporting the whole fruits array
