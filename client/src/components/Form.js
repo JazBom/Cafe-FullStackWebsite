@@ -38,8 +38,6 @@ const Form = (props) => {
         props.deletesubmit(formState._id, formState.item, formState.price, formState.category);
         };
 
-   
-
     return(
             <div className="form">
                 <h2>Update Menu</h2>

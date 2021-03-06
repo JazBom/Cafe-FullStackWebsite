@@ -50,18 +50,6 @@ const App = () => {
             <MenuForm/>
           </Route>
 
-          {/* <Route exact path="/admin/menu-update/add">
-            <MenuFormAdd/>
-          </Route> */}
-
-          {/* <Route exact path="admin/menu-update/edit">
-            <MenuFormEdit/>
-          </Route>
-
-          <Route exact path="admin/menu-update/delete">
-            <MenuFormDelete/>
-          </Route> */}
-
           <Route exact path="/admin/dogs">
             <DogForm/>
           </Route>

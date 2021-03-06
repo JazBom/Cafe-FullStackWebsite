@@ -57,9 +57,10 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // Delete route
-router.delete('/:id', async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
-    const deletedDog = await Dog.findByIdAndRemove(req.params.id);
+    console.log('deleting');
+    const deletedDog = await Dog.deleteOne({imgUrl : req.body.imgUrl});
       res.json({
         status:  {
             code: 200,
@@ -71,5 +72,19 @@ router.delete('/:id', async (req, res) => {
     res.send(err);
   }
 });
+// router.delete('/:id', async (req, res) => {
+//   try {
+//     const deletedDog = await Dog.findByIdAndRemove(req.params.id);
+//       res.json({
+//         status:  {
+//             code: 200,
+//             message: "DOG IMAGE successfully deleted"
+//           },
+//         data: deletedDog
+//       });
+//   } catch(err){
+//     res.send(err);
+//   }
+// });
 
 module.exports = router;
