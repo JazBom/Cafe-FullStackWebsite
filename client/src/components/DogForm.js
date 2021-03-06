@@ -8,9 +8,7 @@ function DogForm () {
 const [formState, setFormState] = useState({
   imgUrl: ''
 });
-
 const [dogImageArray, setDogImageArray] = useState([]);
-const [selectedDogImage, setSelectedDogImage] = useState({imgUrl: '' });
 const [errorMessage, setErrorMessage] = useState('');
 
 const handleChange = (e) => {
@@ -97,17 +95,6 @@ const handleChange = (e) => {
       setErrorMessage("Could not save - is the ID unique?");
     });
 };
-
-//   const tempDogImageArray = [{
-//     imgUrl: "https://i.imgur.com/HM6Nnft.jpg"
-//   },
-//   {
-//     imgUrl: "https://i.imgur.com/o9cvfta.jpg?1"
-//   },
-//   {
-//     imgUrl: "https://i.imgur.com/JY9p7Z2.png?1"
-//   }
-// ];
 
 useEffect(() => {
   fetch("http://localhost:9000/api/dog", {

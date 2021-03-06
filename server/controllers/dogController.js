@@ -21,6 +21,7 @@ router.get('/', async (req, res, next) => {
       res.send(err)
     }
 });
+
 // add dog image route
 router.post('/', async (req, res) => {
   try {
@@ -36,10 +37,9 @@ router.post('/', async (req, res) => {
     });
   } catch(err){
     console.log(err);
-    // res.status(500);
-    // res.json({ message : 'ERROR - Did not save to database - check ID is unique.'});
   }
 });
+
 // get dog image route
 router.get('/:id', async (req, res, next) => {
     try  {
@@ -72,19 +72,5 @@ router.delete('/', async (req, res) => {
     res.send(err);
   }
 });
-// router.delete('/:id', async (req, res) => {
-//   try {
-//     const deletedDog = await Dog.findByIdAndRemove(req.params.id);
-//       res.json({
-//         status:  {
-//             code: 200,
-//             message: "DOG IMAGE successfully deleted"
-//           },
-//         data: deletedDog
-//       });
-//   } catch(err){
-//     res.send(err);
-//   }
-// });
 
 module.exports = router;

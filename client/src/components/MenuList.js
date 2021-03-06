@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const MenuList = (props) => {
   const specialsArray = props.menu

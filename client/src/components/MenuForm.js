@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MenuList from "./MenuList";
 import { Form } from "./Form";
-import Button from "react-bootstrap/Button";
 
-// This container does the following
-// 1. Function for items in list to show up in form when clicked
+//1. Function for items in list to show up in form when clicked
 //2. Function to fetch all menu items from DB and render in MenuList
 //3. Function to add, updated and delete menu items
 //4. Functions to set state and add menu items to state variable
