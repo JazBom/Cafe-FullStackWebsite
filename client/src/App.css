@@ -3,13 +3,13 @@
   font-size: 15px;
 }
 
-.App {
+.app {
   display: flex;
   flex-direction: column;
   z-index: 0;
 }
 
-.App .img-background {
+.app .img-background {
   position: fixed;
   background-attachment: fixed;
   background-size: cover;
@@ -34,9 +34,10 @@
 .navBar ul {
   display: flex;
   position: fixed;
+  padding-top: 0.5%;
   top: 0;
-  right: 1px;
-  margin: 1% 2% 0 0;
+  right: 3px;
+  margin: 1% 5% 0 0;
   display: flex;
   flex-direction: row;
 }
@@ -75,9 +76,10 @@
 .banner h1 {
   padding: 0;
   margin: 0 auto;
-  font-size: 10rem;
+  font-size: 9rem;
   font-weight: 700;
-  color: rgba(29, 197, 29, 0.637);
+  color: rgba(217, 254, 255, 0.9);
+  text-shadow:rgba(217, 255, 246, 0.9) 1px 0 2px;
   text-align: center;
   font-style: italic;
   font-family: 'Courier New', Courier, monospace;
@@ -87,7 +89,7 @@
   align-content: center;
   margin: 0 auto;
   padding: 1%;
-  max-width: 40%;
+  max-width: 60%;
   min-width: 15%;
   border: 2px solid rgb(226, 242, 247);
   border-radius: 2%;
@@ -107,33 +109,21 @@
   border-radius: 5px;
 }
 
-.container {
+.cards-container {
   display: flex;
-  min-height: 500px;
+  flex-flow: row wrap;
+  min-height: 400px;
   width: auto;
   margin: 5%;
   border: 0.5px solid rgba(255, 255, 255, 0.3);
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
+  
   z-index: 0;
 }
 
-.admin {
-  position: fixed;
-  top: 45px;
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  justify-content: space-between;
-  min-height: 300px;
-  width: 100%;
-  padding: 5%;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.514);
-  z-index: 2;
-}
-
 .cards {
+  
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
@@ -144,7 +134,9 @@
 }
 
 .card-one, .card-two, .card-three {
+  
   display: flex;
+  flex-flow: row wrap;
   height: 100%;
   width: 40%;
   margin: 0 auto;
@@ -194,6 +186,21 @@
    width: 100%;
    height: auto;
  }
+
+ .admin {
+  position: fixed;
+  top: 45px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-between;
+  min-height: 300px;
+  width: 100%;
+  padding: 5%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.514);
+  z-index: 2;
+}
 
  .menu-form {
   position: fixed;
@@ -273,6 +280,7 @@
   display: flex;
   margin: 0 auto;
   font-style: bold;
+  font-size: 1.3rem;
  }
 
  .dogs {
@@ -427,18 +435,97 @@
   list-style-type: none;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px) {
-  /* ruleset for 320px - 480px */
-  .App {
-    width: 270px;
+@media only screen and (min-width: 480px) and (max-width: 835px) {
+
+  .container {
+    height: 300px;
+    width: 100%;
   }
 
+  .banner .lilo-sub-heading {
+    align-content: center;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  .cards-container {
+    margin: 0;
+    border: 0;
+    min-height: 200px;
+    width: 100%;
+  }
+
+  .cards {
+   height: 80px;
+   width: 100%;
+ }
+  .card-one, .card-two {
+  margin: 20% auto 0 auto;
+  min-height: 20%;
+  max-height: 50%;
+  width: 40%;
+ }
+
+ .link {
+  font-size: 1rem;
+ }
+
+  .about, .menu {
+    position: fixed;
+    top: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 5%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 0.7rem;
+    z-index: 2;
+   }
+
+   .about .img-div, .menu .img-div {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    align-content: center;
+    z-index: inherit;
+   }
+
+  .about img, .menu img {
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    z-index: inherit;
+   }
+
+   .about .text, .menu .text {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    z-index: inherit;
+   }
+
+  
+
+  .footer {
+    display: flex;
+    position: flex-end;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    margin: 1% auto;
+    padding: 20% 0 0 0;
+    justify-content: center;
+    font-size: 0.5rem;
+    z-index: 1;
+  }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
 
   .app {
-    display: flex;
     flex-direction: column;
     font-size: 0.5rem;
   }
@@ -447,31 +534,116 @@
     width: 480px;
   }
 
-  .banner {
-    position: relative;
-    z-index: 1;
+  .navBar {
+    height: 40px; 
+    margin: 0 auto;
   }
 
-  .lilo-heading h1 {
-    font-size: 0.5rem;
-    z-index: inherit;
+  .homeButton {
+  position: fixed;
+  margin: 0.2%;
+  left: 0;
+  height: 38px;
+  width: 38px;
+  border: 0.6px solid white;
+  }
 
+  .navBar ul {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 3px;
+  margin: 1% 5% 0 0;
   }
-  .home {
-    height: auto;
-    width: 480px;
-    flex-flow: column;
-    z-index: 1;
+  
+  .navBar li {
+    margin: 1% 1% 0 1%;
   }
+   
   .container {
-    height: auto;
-    width: 480px;
     flex-flow: column wrap;
-    z-index: 1;
   }
+
+  .home {
+    flex-flow: column wrap;
+  }
+ 
+  .banner {
+    margin-top: 10%; 
+  }
+  
+  .banner h1 {
+    padding: 0;
+    margin: 0 auto;
+    font-size: 7rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .banner h2 {
+    color: rgb(255, 255, 255);
+    font-size: 0.8rem;
+  }
+
+  .cards-container {
+    margin: 0;
+    border: 0;
+    min-height: 200px;
+    width: 100%;
+  }
+
   .cards {
-    z-index: 1;
-  }
+   height: 80px;
+   width: 100%;
+ }
+  .card-one, .card-two {
+  margin: 22.5% auto 0 auto;
+  min-height: 20%;
+  max-height: 50%;
+  width: 40%;
+ }
+
+ .link {
+  font-size: 1rem;
+ }
+
+  .about, .menu {
+    position: fixed;
+    top: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 5%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 1);
+    font-size: 0.7rem;
+    z-index: 2;
+   }
+
+   .about .img-div, .menu .img-div {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    align-content: center;
+    z-index: inherit;
+   }
+
+  .about img, .menu img {
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    z-index: inherit;
+   }
+
+   .about .text, .menu .text {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    z-index: inherit;
+   }
+
   .footer {
     display: flex;
     position: flex-end;
@@ -502,6 +674,101 @@
   }
 }
 
+@media only screen and (max-width: 320px), (orientation: portrait) {
+  .app {
+    flex-direction: column;
+  }
+  .img-background {
+    height: auto;
+    width: 480px;
+  }
+
+  .navBar {
+    height: 40px; 
+    margin: 0 auto;
+  }
+
+  .homeButton {
+  position: fixed;
+  margin: 0.2%;
+  left: 0;
+  height: 38px;
+  width: 38px;
+  border: 0.6px solid white;
+  }
+
+  .navBar ul {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 3px;
+  margin: 1% 5% 0 0;
+  }
+  
+  .navBar li {
+    margin: 1% 1% 0 1%;
+  }
+   
+  .container {
+    flex-flow: column wrap;
+    z-index: 1;
+  }
+
+  .home {
+    flex-flow: column wrap;
+    z-index: inherit;
+  }
+ 
+  .banner {
+    margin-top: 10%; 
+  }
+  
+  .banner h1 {
+    padding: 0;
+    margin: 0 auto;
+    font-size: 5rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .banner .lilo-sub-heading {
+    display: none;
+  }
+  
+  .banner h2 {
+    color: rgb(255, 255, 255);
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    display: flex;
+    position: flex-end;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    margin: 1% auto;
+    padding: 20% 0 0 0;
+    justify-content: center;
+    font-size: 0.5rem;
+    z-index: 1;
+
+  }
+  .location {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: auto 2.5%;
+    z-index: inherit;
+
+  }
+  .contact {
+    display: flex;
+    width: 90%;
+    margin: auto 2.5%;
+    z-index: inherit;
+
+  }
+}
 
 /* Color palette notes */
 /* color: rgb(12, 173, 133); */

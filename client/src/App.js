@@ -20,7 +20,7 @@ import { DogImages } from './components/DogImages';
 const App = () => {
   return (
     <Router>
-    <div className="App">
+    <div className="app">
     <img className="image-background" src="https://web.archive.org/web/20161031200755if_/http://static.panoramio.com/photos/large/102225398.jpg" alt="beach boxes in background"/>
     <Nav/>
           <Switch>
