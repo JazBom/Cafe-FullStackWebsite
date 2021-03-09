@@ -118,12 +118,10 @@
   border: 0.5px solid rgba(255, 255, 255, 0.3);
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
-  
   z-index: 0;
 }
 
 .cards {
-  
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
@@ -134,10 +132,9 @@
 }
 
 .card-one, .card-two, .card-three {
-  
   display: flex;
   flex-flow: row wrap;
-  height: 100%;
+  height: 80%;
   width: 40%;
   margin: 0 auto;
   align-items: center;
@@ -159,6 +156,11 @@
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 1);
   z-index: 2;
+ }
+
+ .about h2, .menu h2 {
+  color: rgb(13, 92, 62);
+  font-size: 1.5rem;
  }
 
  .about .text {
@@ -202,6 +204,20 @@
   z-index: 2;
 }
 
+.admin .cards-container {
+  height: 100%;
+}
+
+ .admin .card-one, .admin .card-two {
+    margin: 0 auto;
+    height: auto;
+    width: 40%;
+   }
+ 
+ .admin .cards .card-one .link, .admin .cards .card-two .link {
+  font-size: 1.2rem;
+ }
+
  .menu-form {
   position: fixed;
   top: 45px;
@@ -210,7 +226,7 @@
   max-height: 900px;
   display: flex;
   overflow: scroll;
-  flex-flow: row wrap;
+  flex-flow: row reverse;
   justify-content: space-between;
   margin: 0 auto;
   padding: 2%;
@@ -221,6 +237,9 @@
  .menu-form h2 {
   width: 100%;
   text-align: center;
+  margin-top: 5%;
+  font-size: 1.2rem;
+  color: rgba(13, 92, 62, 0.9);
  }
 
  .div-one-list, .div-two-form {
@@ -357,8 +376,6 @@
   z-index: inherit;
 }
 
-
-
 .footer {
   position: relative;
   display: flex;
@@ -430,7 +447,6 @@
   border: 0.1vh ridge rgba(210, 215, 211, 0.5);
 }
 
-
 .no-bull {
   list-style-type: none;
 }
@@ -448,18 +464,18 @@
     font-size: 1rem;
   }
 
-  .cards-container {
+  .home .cards-container {
     margin: 0;
     border: 0;
     min-height: 200px;
     width: 100%;
   }
 
-  .cards {
+  .home .cards {
    height: 80px;
    width: 100%;
  }
-  .card-one, .card-two {
+  .home .card-one, .home .card-two {
   margin: 20% auto 0 auto;
   min-height: 20%;
   max-height: 50%;
@@ -483,6 +499,10 @@
     background-color: rgba(255, 255, 255, 1);
     font-size: 0.7rem;
     z-index: 2;
+   }
+
+   .about h2, .menu h2 {
+    text-align: center;
    }
 
    .about .img-div, .menu .img-div {
@@ -509,6 +529,67 @@
 
   
 
+  
+/* 
+   .admin .card-one, .admin .card-two {
+    margin: 0 auto;
+    max-height: 70%;
+    min-height: 30%;
+    width: 40%;
+     } */
+   
+   /* .admin .cards .card-one .link, .admin .cards .card-two .link {
+    font-size: 0.9rem;
+   } */
+
+   .menu-form {
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column-reverse;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 5% 2%;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 2;
+   }
+  
+   .div-one-list, .div-two-form {
+    display: flex;
+    width: 100%;
+    flex-flow: column-reverse;
+    z-index: inherit;
+   } 
+  
+   .div-two-form .buttons {
+     min-width: 50%;
+     max-width: 60%;
+     margin: 5% auto;
+     display: flex;
+     flex-direction: row;
+     z-index: inherit;
+   }
+  
+   .menuButton {
+     display: inline-block;
+     flex-direction: row;
+     margin: 0 auto;
+     align-items: center;
+     background-color:rgba(210, 215, 211, 0.5);
+     color: rgb(13, 92, 62);
+     border: 1px solid rgba(13, 92, 62, 0.5);
+     border-radius: 5px;
+     font-size: 0.9rem;
+     font-weight: 600;
+     font-family: inherit;
+     z-index: inherit;
+     transition-property: color;
+     transition-duration: 200ms;
+     transition-timing-function: ease-in;
+   }
+
   .footer {
     display: flex;
     position: flex-end;
@@ -530,8 +611,8 @@
     font-size: 0.5rem;
   }
   .img-background {
-    height: auto;
-    width: 480px;
+    height: 100px;
+    width: 100%;
   }
 
   .navBar {
@@ -585,46 +666,46 @@
     font-size: 0.8rem;
   }
 
-  .cards-container {
+.cards-container {
     margin: 0;
     border: 0;
     min-height: 200px;
     width: 100%;
   }
 
-  .cards {
+.cards {
    height: 80px;
    width: 100%;
  }
   .card-one, .card-two {
   margin: 22.5% auto 0 auto;
   min-height: 20%;
-  max-height: 50%;
+  height: 50%;
   width: 40%;
  }
 
- .link {
-  font-size: 1rem;
- }
-
-  .about, .menu {
-    position: fixed;
-    top: 40px;
+  .about, .menu, .menu-form {
+    position: relative;
+    top: 0;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: auto;
-    padding: 5%;
+    height: 756px;
+    overflow: scroll;
+    padding: 0 5%;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 1);
-    font-size: 0.7rem;
-    z-index: 2;
+    z-index: 0;
+   }
+
+   .about h2, .menu h2 {
+    text-align: center;
    }
 
    .about .img-div, .menu .img-div {
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
     align-content: center;
     z-index: inherit;
@@ -642,6 +723,73 @@
     height: auto;
     margin: 0 auto;
     z-index: inherit;
+   }
+
+   .admin, .dogs {
+    position: fixed;
+    top: 40px;
+   }
+  
+   .admin .card-one, .admin .card-two {
+      margin: 0 auto;
+      height: 100%;
+      width: 40%;
+     }
+   
+   .admin .cards .card-one .link, .admin .cards .card-two .link {
+    font-size: 0.9rem;
+   }
+
+   .menu-form {
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column-reverse;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 2;
+   }
+  
+   .menu-form h2 {
+    width: 100%;
+    text-align: center;
+    margin: 5% 0;
+    font-size: 1rem;
+    color: rgba(13, 92, 62, 0.9);
+   }
+
+   .form {
+      width: 100%;
+      text-align: center;
+   }
+  
+   .div-one-list, .div-two-form {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    flex-flow: column-reverse;
+    margin: 0;
+    z-index: inherit;
+   } 
+  
+   .div-one-list h3, .div-one-list p {
+    font-size: 0.9rem;
+  }
+
+   .div-one-list li {
+     text-align: left;
+   }
+   
+  
+   .div-two-form .buttons {
+     width: 80%;
+     margin: 5% auto;
+     display: flex;
+     flex-direction: row;
+     z-index: inherit;
    }
 
   .footer {
@@ -718,7 +866,7 @@
     flex-flow: column wrap;
     z-index: inherit;
   }
- 
+
   .banner {
     margin-top: 10%; 
   }
@@ -740,6 +888,10 @@
     font-size: 0.8rem;
   }
 
+  .admin .cards .card-one .link, .admin .cards .card-two .link {
+    font-size: 0.8rem;
+   }
+
   .footer {
     display: flex;
     position: flex-end;
@@ -751,8 +903,8 @@
     justify-content: center;
     font-size: 0.5rem;
     z-index: 1;
-
   }
+
   .location {
     display: flex;
     flex-flow: row wrap;

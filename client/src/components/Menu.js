@@ -26,6 +26,7 @@ return (
           
           <div className="text">
             <div>
+            
             <MenuList menu={menuArray} canClick="false" />
           
             </div>

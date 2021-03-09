@@ -70,7 +70,6 @@ const MenuList = (props) => {
   return (
     <div className="menu-list">
       <h2>Menu</h2>
-
       <div>
         <h3 className="specials">Specials</h3>
         <ul className="specials">{specialsArray}</ul>
