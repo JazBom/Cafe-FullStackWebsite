@@ -149,10 +149,9 @@
   top: 45px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   min-height: 300px;
   width: 100%;
-  padding: 5%;
+  padding: 2%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 1);
   z-index: 2;
@@ -168,7 +167,8 @@
  }
 
  .about .img-div {
-  width: auto;
+  width: 50%;
+  margin: 1%;
  }
 
  .about .img {
@@ -177,11 +177,12 @@
  }
 
  .menu .text {
-  width: 40%;
+  width: 45%;
  }
 
  .menu .img-div {
-  width: auto;
+  width: 45%;
+  margin: 1%;
  }
 
  .menu .img {
@@ -189,6 +190,19 @@
    height: auto;
  }
 
+.Admin-login {
+  position: fixed;
+  top: 45px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: right;
+  min-height: 300px;
+  width: 100%;
+  padding: 5%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.514);
+  z-index: 2;
+}
  .admin {
   position: fixed;
   top: 45px;
@@ -293,6 +307,11 @@
  .form-field {
    width: 100%;
    margin: 1% auto 9% auto;
+ }
+
+ .error-message {
+   color: red;
+   font-weight: 700;
  }
 
  .link {
@@ -527,21 +546,6 @@
     z-index: inherit;
    }
 
-  
-
-  
-/* 
-   .admin .card-one, .admin .card-two {
-    margin: 0 auto;
-    max-height: 70%;
-    min-height: 30%;
-    width: 40%;
-     } */
-   
-   /* .admin .cards .card-one .link, .admin .cards .card-two .link {
-    font-size: 0.9rem;
-   } */
-
    .menu-form {
     position: fixed;
     top: 40px;
@@ -682,6 +686,10 @@
   min-height: 20%;
   height: 50%;
   width: 40%;
+ }
+
+ .link {
+   font-size: 0.9rem;
  }
 
   .about, .menu, .menu-form {
