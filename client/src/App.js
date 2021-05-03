@@ -15,6 +15,7 @@ import { MenuForm } from './components/MenuForm';
 import { Form } from './components/Form';
 import { DogForm } from './components/DogForm';
 import { DogImages } from './components/DogImages';
+import { AdminLogin } from "./users/AdminLogin";
 
 
 const App = () => {
@@ -42,7 +43,11 @@ const App = () => {
             <Menu/>
           </Route>
           
-          <Route exact path="/admin">
+          <Route exact path="/admin-login">
+            <AdminLogin/>
+          </Route>
+
+          <Route exact path="/admin-user">
             <Admin/>
           </Route>
 
