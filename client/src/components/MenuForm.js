@@ -36,6 +36,7 @@ const MenuForm = (props) => {
     const menuElIndex = menuArray.findIndex((el) => el._id === menuElId);
     const menuEl = menuArray[menuElIndex];
     setSelectedMenuItem(menuEl);
+    setErrorMessage('');
   };
 
   // Add item button logic in menu form
@@ -192,7 +193,7 @@ const MenuForm = (props) => {
           editsubmit={handleFormEdit}
           deletesubmit={handleFormDelete}
         />
-        <div
+        <div className="error-message"
           style={
             errorMessage.length <= 0
               ? { display: "none" }
